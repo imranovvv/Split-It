@@ -1,0 +1,16 @@
+C:\Users\imranov\source\repos\Split-It\Split-It\Split-It\bin\Debug\netstandard2.0\Split-It.deps.json
+C:\Users\imranov\source\repos\Split-It\Split-It\Split-It\bin\Debug\netstandard2.0\Split-It.dll
+C:\Users\imranov\source\repos\Split-It\Split-It\Split-It\bin\Debug\netstandard2.0\Split-It.pdb
+C:\Users\imranov\source\repos\Split-It\Split-It\Split-It\obj\Debug\netstandard2.0\Split-It.csproj.AssemblyReference.cache
+C:\Users\imranov\source\repos\Split-It\Split-It\Split-It\obj\Debug\netstandard2.0\Split-It.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\imranov\source\repos\Split-It\Split-It\Split-It\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\imranov\source\repos\Split-It\Split-It\Split-It\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\imranov\source\repos\Split-It\Split-It\Split-It\obj\Debug\netstandard2.0\Split-It.AssemblyInfoInputs.cache
+C:\Users\imranov\source\repos\Split-It\Split-It\Split-It\obj\Debug\netstandard2.0\Split-It.AssemblyInfo.cs
+C:\Users\imranov\source\repos\Split-It\Split-It\Split-It\obj\Debug\netstandard2.0\Split-It.csproj.CoreCompileInputs.cache
+C:\Users\imranov\source\repos\Split-It\Split-It\Split-It\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\imranov\source\repos\Split-It\Split-It\Split-It\obj\Debug\netstandard2.0\Split-It.dll
+C:\Users\imranov\source\repos\Split-It\Split-It\Split-It\obj\Debug\netstandard2.0\refint\Split-It.dll
+C:\Users\imranov\source\repos\Split-It\Split-It\Split-It\obj\Debug\netstandard2.0\Split-It.pdb
+C:\Users\imranov\source\repos\Split-It\Split-It\Split-It\obj\Debug\netstandard2.0\ref\Split-It.dll
+C:\Users\imranov\source\repos\Split-It\Split-It\Split-It\obj\Debug\netstandard2.0\AddItemPage.xaml.g.cs

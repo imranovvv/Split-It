@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    x:Class="Split_It.MainPage"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="true"
+    Title="Split-It"
+    BackgroundColor="#E8EEF3"
+
+    >
+
+    <StackLayout>
+        <ListView x:Name="displayItems" Margin="5" HasUnevenRows="True" BackgroundColor="#E8EEF3" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+
+                    <ViewCell>
+                        <Frame x:Name="itemFrame" Margin="5" Padding="5" CornerRadius="5">
+                            <Grid Padding="5">
+
+
+                                <Label Grid.Column="0" Grid.Row="0" Text="{Binding ItemName}" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                                <Label Grid.Column="1" Grid.Row="0" Text="{Binding ItemQty, StringFormat='x{0}'}" HorizontalOptions="Center" VerticalOptions="Center" TranslationX="70"/>
+                                <Label Grid.Column="2" Grid.Row="0" Text="{Binding ItemPrice, StringFormat='RM {0:F2}'}" TextColor="#008000" HorizontalOptions="End" VerticalOptions="Center"/>
+                            </Grid>
+
+
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.Footer>
+                <Frame Margin="5" Padding="5" CornerRadius="5">
+                    <Grid Padding="5">
+
+                        <StackLayout Orientation="Horizontal">
+                        <Button x:Name="HandleAddItemTapped" TextColor="White" Text="+" BackgroundColor="#10416D" CornerRadius="10" Clicked="GoToItemPage"/>
+                        <Label Text="Add Item" TextColor="Black" VerticalOptions="Center" ></Label>
+                    </StackLayout>
+                    </Grid>
+
+                </Frame>
+            </ListView.Footer>
+        </ListView>
+
+
+        
+
+
+
+
+
+
+        <!-- 
+        <Entry x:Name="inputitemname" Placeholder="Enter Item Name"  FontSize="16" />
+        <Entry x:Name="inputprice" Placeholder="Enter Item Price" FontSize="16" Keyboard="Numeric"/>
+        <Entry x:Name="inputqty" Placeholder="Enter Item Quantity"  FontSize="16" Keyboard="Numeric"/>
+        <Button x:Name="saveitembutton" Text="Save" VerticalOptions="CenterAndExpand" Clicked="ItemOnSave"/>
+        -->
+            <CollectionView x:Name="personList" Margin="5"  BackgroundColor="White" ItemsLayout="HorizontalList"  >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="5">
+                            <Frame x:Name="personFrame" Margin="5" Padding="5" CornerRadius="5" BackgroundColor="#10416D">
+                                <Label VerticalOptions="Center" TextColor="White" Text="{Binding PersonName}"/>
+                            </Frame>
+                        </Grid>
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            <CollectionView.Footer>
+                <Grid Padding="5">
+                    <Frame HasShadow="False" Margin="5" Padding="5" CornerRadius="5" BackgroundColor="#10416D">
+                        <Label VerticalOptions="Center" TextColor="White" Text="+"/>
+                    </Frame>
+                </Grid>
+            </CollectionView.Footer>
+        </CollectionView>
+        
+
+    
+
+        <!--
+        <Entry x:Name="inputname" Placeholder="Enter Name"  FontSize="16" />
+        <Button x:Name="savepersonbutton" Text="Save" VerticalOptions="CenterAndExpand" Clicked="PersonOnSave"/>
+        -->
+
+
+    </StackLayout>
+
+
+
+
+</ContentPage>
