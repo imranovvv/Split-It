@@ -8,7 +8,6 @@ using SplitIt;
 using Xamarin.Forms;
 using SplitIt.Models;
 using Xamarin.Essentials;
-using Split;
 
 namespace Split_It
 {
@@ -27,38 +26,16 @@ namespace Split_It
             displayItems.ItemsSource = await firebaseHelper.GetAllItems();
             personList.ItemsSource= await firebaseHelper.GetAllPersons();
         }
-        private void GoToItemPage(object sender, EventArgs e)
+        private async void GoToItemPage(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new AddItemPage());
+            await Navigation.PushAsync(new AddItemPage());
         }
 
-
-
-        /*async void ItemOnSave(object sender, EventArgs e)
+        private async void GoToPersonPage(object sender, EventArgs e)
         {
-            string itemname = inputitemname.Text;
-            var itemprice = Double.Parse(inputprice.Text);
-            var itemqty = int.Parse(inputqty.Text);
-
-            await firebaseHelper.AddRecord(itemname, itemprice, itemqty);
-
-            await DisplayAlert("Record Saved", "Item has been added", "OK");
-
-            // Update the ListView with the new data
-            displayItems.ItemsSource = await firebaseHelper.GetAllItems();
+            await Navigation.PushAsync(new AddPersonPage());
         }
 
-        async void PersonOnSave(object sender, EventArgs e)
-        {
-            string personName = inputname.Text;
-            
-
-            await firebaseHelper.AddPerson(personName);
-
-            await DisplayAlert("Record Saved", "Person has been added", "OK");
-
-            // Update the ListView with the new data
-            personList.ItemsSource = await firebaseHelper.GetAllPersons();
-        }*/
+        
     }
 }

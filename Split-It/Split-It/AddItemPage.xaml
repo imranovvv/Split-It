@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="SplitIt.AddItemPage"
+    BackgroundColor="#E8EEF3"
+>
+    <StackLayout>
+        <Label Margin="40" HorizontalOptions="Center" FontAttributes="Bold" FontSize="Large">Add Item</Label>
+        <Frame Margin="10" Padding="10" CornerRadius="10">
+            <StackLayout Padding="5" Margin="5" Spacing="20">
+                <Entry x:Name="inputitemname" Placeholder="Item Name"  FontSize="16"/>
+                <Entry x:Name="inputprice" Placeholder="Item Price" FontSize="16" Keyboard="Numeric"/>
+                <Entry x:Name="inputqty" Placeholder="Quantity"  FontSize="16" Keyboard="Numeric"/>
+                <Button x:Name="saveitembutton" HorizontalOptions="Center" WidthRequest="100" BackgroundColor="#2F80ED" Text="Add" TextColor="White" TranslationX="80" Clicked="ItemOnSave"/>
+
+            </StackLayout>
+        </Frame>
+        
+
+    </StackLayout>
+</ContentPage>
+
