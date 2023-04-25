@@ -14,7 +14,7 @@
     >
 
     <StackLayout>
-        <ListView x:Name="displayItems" Margin="5" HasUnevenRows="True" BackgroundColor="#E8EEF3" >
+        <ListView x:Name="displayItems" Margin="5" HasUnevenRows="True" BackgroundColor="#E8EEF3" ItemSelected="OnItemSelected" >
             <ListView.ItemTemplate>
                 <DataTemplate>
 
@@ -26,6 +26,23 @@
                                 <Label Grid.Column="0" Grid.Row="0" Text="{Binding ItemName}" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
                                 <Label Grid.Column="1" Grid.Row="0" Text="{Binding ItemQty, StringFormat='x{0}'}" HorizontalOptions="Center" VerticalOptions="Center" TranslationX="70"/>
                                 <Label Grid.Column="2" Grid.Row="0" Text="{Binding ItemPrice, StringFormat='RM {0:F2}'}" TextColor="#008000" HorizontalOptions="End" VerticalOptions="Center"/>
+                                <FlexLayout
+                                    Grid.Column="0"
+                                    Grid.Row="1"
+                                    BindableLayout.ItemsSource="{Binding PaidBy}"
+                                    Direction="Row"
+                                    HorizontalOptions="Start"
+                                    >       
+                                    <BindableLayout.ItemTemplate>
+                                        <DataTemplate>
+                                            <Label
+                                                Text="{Binding PersonName}"
+                                                Margin="0,0,5,0" />     
+                                        </DataTemplate>
+                                    </BindableLayout.ItemTemplate>
+                                </FlexLayout>
+
+
                             </Grid>
 
 
@@ -35,25 +52,18 @@
             </ListView.ItemTemplate>
             <ListView.Footer>
                 <Frame HasShadow="False" Margin="5" Padding="5" CornerRadius="5">
-                    <Grid Padding="5">
-                        <Button x:Name="HandleAddItemTapped" Grid.Column="0" Grid.Row="0" TextColor="White" Text="+" BackgroundColor="#10416D" CornerRadius="10" Clicked="GoToItemPage" HorizontalOptions="Start"/>
+                    <StackLayout Padding="5" Orientation="Horizontal">
+                        <Button x:Name="HandleAddItemTapped" Grid.Column="0" Grid.Row="0" TextColor="White" Text="+" BackgroundColor="#10416D" CornerRadius="10" Clicked="GoToItemPage" />
                         <Label Grid.Column="1" Grid.Row="0" Text="Add Item" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Start"></Label>
-                    </Grid>
+                    </StackLayout>
 
                 </Frame>
             </ListView.Footer>
         </ListView>
 
+        <Button Margin="5" CornerRadius="5" BackgroundColor="#2F80ED" Text="Complete" TextColor="White"></Button>
 
-        
-
-
-
-
-
-
-        
-            <CollectionView x:Name="personList" Margin="5"  BackgroundColor="White" ItemsLayout="HorizontalList" HeightRequest="100" >
+        <CollectionView x:Name="personList" Margin="5"  BackgroundColor="White" ItemsLayout="HorizontalList" HeightRequest="100" SelectionMode="Single" SelectionChanged="OnPersonSelected">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid Padding="5">

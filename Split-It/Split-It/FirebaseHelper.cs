@@ -24,18 +24,18 @@ namespace SplitIt
                     ItemName = item.Object.ItemName,
                     ItemPrice = item.Object.ItemPrice,
                     ItemQty = item.Object.ItemQty,
-
+                    PaidBy = item.Object.PaidBy,
 
                 }).ToList();
         }
 
         // Add a single record of Items
 
-        public async Task AddRecord(string name, double price, int qty)
+        public async Task AddRecord(string name, double price, int qty, Person[] people)
         {
             await firebase
                 .Child("Items")
-                .PostAsync(new Items() { ItemName = name, ItemPrice = price, ItemQty = qty });
+                .PostAsync(new Items() { ItemName = name, ItemPrice = price, ItemQty = qty, PaidBy = people });
         }
 
         // Get list of Persons
@@ -58,6 +58,23 @@ namespace SplitIt
                 .PostAsync(new Person() { PersonName = name });
         }
 
+
+        // Update PaidBy field
+
+        public async Task UpdateItems(string itemName, Person[] newPaidBy)
+        {
+            var toUpdateItem = (await firebase
+              .Child("Items")
+              .OnceAsync<Items>()).Where(a => a.Object.ItemName == itemName).FirstOrDefault();
+
+            toUpdateItem.Object.PaidBy = newPaidBy;
+
+            await firebase
+                  .Child("Items")
+                  .Child(toUpdateItem.Key)
+                  .PutAsync(toUpdateItem.Object);
+
+        }
     }
 
 

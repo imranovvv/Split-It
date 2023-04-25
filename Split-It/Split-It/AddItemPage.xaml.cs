@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SplitIt.Models;
+using System;
 using System.Collections.Generic;
 
 
@@ -22,13 +23,17 @@ namespace SplitIt
             var itemprice = Double.Parse(inputprice.Text);
             var itemqty = int.Parse(inputqty.Text);
 
-            await firebaseHelper.AddRecord(itemname, itemprice, itemqty);
+            Person[] people = new Person[10];
+
+            await firebaseHelper.AddRecord(itemname, itemprice, itemqty, people);
 
             await DisplayAlert("Record Saved", "Item has been added", "OK");
 
             await Navigation.PopAsync();
 
         }
+
+        
     }
 }
 
