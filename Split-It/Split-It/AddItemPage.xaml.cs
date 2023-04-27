@@ -27,7 +27,7 @@ namespace SplitIt
 
             await firebaseHelper.AddRecord(itemname, itemprice, itemqty, people);
 
-            await DisplayAlert("Record Saved", "Item has been added", "OK");
+            await DisplayAlert("", "Item has been added", "OK");
 
             await Navigation.PopAsync();
 

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SplitIt.InformationPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Instructions" HorizontalOptions="Center" FontSize="Large"></Label>
+            <Frame x:Name="InstructionFrame" Margin="10" Padding="10" CornerRadius="10">
+
+                <Label Text="Click on a person's name and then choose which item that person paid for. If more than one person paid for one item, the app will automatically split the cost between the payers"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+                
+            </Frame>
+            <Label Text="About" HorizontalOptions="Center" FontSize="Large"></Label>
+            <Frame x:Name="AboutFrame" Margin="10" Padding="10" CornerRadius="10">
+
+                <Label Text="This application was developed by Imran Hafizuddin, a UNITEN student for the Mobile Programming Final Project. This app intends to make it easier for users to split their bill whenever going out to eat at a restaurant."
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

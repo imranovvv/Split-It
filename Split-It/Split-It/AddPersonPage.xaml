@@ -5,7 +5,7 @@
     x:Class="SplitIt.AddPersonPage">
     <StackLayout>
 
-        <Label Margin="40" HorizontalOptions="Center" FontAttributes="Bold" FontSize="Large">Add Item</Label>
+        <Label Margin="40" HorizontalOptions="Center" FontAttributes="Bold" FontSize="Large">Add Person</Label>
         <Frame Margin="10" Padding="10" CornerRadius="10">
             <StackLayout Padding="5" Margin="5" Spacing="20">
                <Entry x:Name="inputname" Placeholder="Enter Name"  FontSize="16" />

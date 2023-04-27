@@ -21,7 +21,7 @@ namespace SplitIt
 
             await firebaseHelper.AddPerson(personName);
 
-            await DisplayAlert("Record Saved", "Person has been added", "OK");
+            await DisplayAlert("", "Person has been added", "OK");
 
             await Navigation.PopAsync();
 

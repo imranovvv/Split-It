@@ -32,20 +32,16 @@
                                     BindableLayout.ItemsSource="{Binding PaidBy}"
                                     Direction="Row"
                                     HorizontalOptions="Start"
-                                    >       
+                                    >
                                     <BindableLayout.ItemTemplate>
                                         <DataTemplate>
                                             <Label
                                                 Text="{Binding PersonName}"
-                                                Margin="0,0,5,0" />     
+                                                Margin="0,0,5,0" />
                                         </DataTemplate>
                                     </BindableLayout.ItemTemplate>
-                                </FlexLayout>
-
-
+                                    </FlexLayout>
                             </Grid>
-
-
                         </Frame>
                     </ViewCell>
                 </DataTemplate>
@@ -61,7 +57,7 @@
             </ListView.Footer>
         </ListView>
 
-        <Button Margin="5" CornerRadius="5" BackgroundColor="#2F80ED" Text="Complete" TextColor="White"></Button>
+        <Button x:Name="CompleteButton" Margin="5" CornerRadius="5" BackgroundColor="#2F80ED" Text="Complete" TextColor="White" Clicked="CompleteButtonClicked" ></Button>
 
         <CollectionView x:Name="personList" Margin="5"  BackgroundColor="White" ItemsLayout="HorizontalList" HeightRequest="100" SelectionMode="Single" SelectionChanged="OnPersonSelected">
                 <CollectionView.ItemTemplate>

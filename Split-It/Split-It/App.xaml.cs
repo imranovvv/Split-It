@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SplitIt;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,8 +12,8 @@ namespace Split_It
             InitializeComponent();
 
             //MainPage = new MainPage();
-            MainPage = new NavigationPage(new MainPage());
-
+            //MainPage = new NavigationPage(new MainPage());
+            MainPage = new MasterPage();
 
         }
 

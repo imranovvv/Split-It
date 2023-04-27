@@ -7,6 +7,6 @@ namespace SplitIt.Models
     {
         public string PersonName { get; set; }
 
-
+        public double SplitAmount { get; set; }
     }
 }

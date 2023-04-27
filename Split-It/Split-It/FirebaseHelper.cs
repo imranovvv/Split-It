@@ -59,7 +59,7 @@ namespace SplitIt
         }
 
 
-        // Update PaidBy field
+        // Update PaidBy field in Items
 
         public async Task UpdateItems(string itemName, Person[] newPaidBy)
         {
@@ -75,6 +75,34 @@ namespace SplitIt
                   .PutAsync(toUpdateItem.Object);
 
         }
+        public async Task DeletePersonFromItem(string itemName, string personName)
+        {
+            var toUpdateItem = (await firebase
+                .Child("Items")
+                .OnceAsync<Items>()).Where(a => a.Object.ItemName == itemName).FirstOrDefault();
+
+            if (toUpdateItem != null)
+            {
+                // Remove the person from the PaidBy list
+                var updatedPaidByList = toUpdateItem.Object.PaidBy.ToList();
+                updatedPaidByList.RemoveAll(p => p.PersonName == personName);
+
+                // Update the PaidBy list of the item
+                toUpdateItem.Object.PaidBy = updatedPaidByList.ToArray();
+
+                // Update the item in the Firebase database
+                await firebase
+                    .Child("Items")
+                    .Child(toUpdateItem.Key)
+                    .PutAsync(toUpdateItem.Object);
+            }
+            else
+            {
+                throw new Exception("Item not found.");
+            }
+        }
+
+
     }
 
 
