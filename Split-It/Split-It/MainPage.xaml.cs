@@ -107,6 +107,7 @@ namespace Split_It
 
             displayItems.ItemsSource = await firebaseHelper.GetAllItems();
             personList.ItemsSource = await firebaseHelper.GetAllPersons();
+            personSelected = null;
         }
 
 
