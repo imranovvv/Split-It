@@ -1,53 +1,69 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SplitIt.RecordPage">
+             x:Class="SplitIt.RecordPage"
+             BackgroundColor="#E8EEF3">
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="displayItems" Margin="5" HasUnevenRows="True" BackgroundColor="#E8EEF3">
+            <ListView
+                x:Name="recordListView"
+                Margin="5"
+                HasUnevenRows="True"
+                BackgroundColor="#E8EEF3">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Frame x:Name="itemFrame" Margin="5" Padding="5" CornerRadius="5">
-                                <Grid Padding="5">
-                                    <Label Grid.Column="0" Grid.Row="0" Text="{Binding ItemName}" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
-                                    <StackLayout
-                                Grid.Column="0"
-                                Grid.Row="1"
-                                BindableLayout.ItemsSource="{Binding PaidBy}"
-                                Orientation="Horizontal"
-                                HorizontalOptions="Start"
-                            >
+                            <Frame
+                                Margin="5"
+                                Padding="5"
+                                CornerRadius="5">
+                                <StackLayout>
+                                    <Label
+                                        Text="{Binding DateCreated, StringFormat='{0:MMMM dd, yyyy hh:mm tt}'}"
+                                        HorizontalOptions="StartAndExpand"
+                                        VerticalOptions="Center" />
+
+                                    <FlexLayout
+                                        BindableLayout.ItemsSource="{Binding ItemsList}"
+                                        Wrap="Wrap"
+                                        Direction="Row">
                                         <BindableLayout.ItemTemplate>
                                             <DataTemplate>
-                                                <StackLayout Orientation="Horizontal">
+                                                <StackLayout Orientation="Vertical" Padding="5">
                                                     <Label
-                                                Text="{Binding PersonName}"
-                                                Margin="0,0,5,0" />
-                                                    <Label
-                                                Text="{Binding SplitAmount, StringFormat='RM {0:F2}'}"
-                                                TextColor="#008000"
-                                                Margin="0,0,10,0" />
+                                                        Text="{Binding ItemName}"
+                                                        HorizontalOptions="StartAndExpand" />
+
+                                                    <FlexLayout
+                                                        BindableLayout.ItemsSource="{Binding PaidBy}"
+                                                        Wrap="Wrap"
+                                                        Direction="Row"
+                                                        HorizontalOptions="Start">
+                                                        <BindableLayout.ItemTemplate>
+                                                            <DataTemplate>
+                                                                <StackLayout Orientation="Horizontal">
+                                                                    <Label
+                                                                        Text="{Binding PersonName}"
+                                                                        Margin="0,0,5,0" />
+                                                                    <Label
+                                                                        Text="{Binding SplitAmount, StringFormat='RM {0:F2}'}"
+                                                                        TextColor="#008000"
+                                                                        Margin="0,0,10,0" />
+                                                                </StackLayout>
+                                                            </DataTemplate>
+                                                        </BindableLayout.ItemTemplate>
+                                                    </FlexLayout>
                                                 </StackLayout>
                                             </DataTemplate>
                                         </BindableLayout.ItemTemplate>
-                                    </StackLayout>
-                                </Grid>
+                                    </FlexLayout>
+                                </StackLayout>
                             </Frame>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-                <ListView.Footer>
-                    <Frame x:Name="item" Margin="5" Padding="5" CornerRadius="5">
-                        <StackLayout>
-                            <Label Text="Total paid by each person:" FontAttributes="Bold" />
-                            <StackLayout x:Name="personTotalsStackLayout" Orientation="Vertical" />
-                        </StackLayout>
-                    </Frame>
-                    
-                </ListView.Footer>
+                
             </ListView>
         </StackLayout>
-
     </ContentPage.Content>
 </ContentPage>

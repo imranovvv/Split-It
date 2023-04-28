@@ -137,8 +137,20 @@ namespace Split_It
             displayItems.ItemsSource = await firebaseHelper.GetAllItems();
             personList.ItemsSource = await firebaseHelper.GetAllPersons();
 
-            await Navigation.PushAsync(new RecordPage());
+            await Navigation.PushAsync(new TotalPage());
 
+        }
+
+        private async void OnResetButtonClicked(object sender, EventArgs e)
+        {
+            var confirmReset = await DisplayAlert("Warning", "Are you sure you want to reset the data?", "Yes", "Cancel");
+
+            if (confirmReset)
+            {
+                await firebaseHelper.ResetDatabase();
+                displayItems.ItemsSource = await firebaseHelper.GetAllItems();
+                personList.ItemsSource = await firebaseHelper.GetAllPersons();
+            }
         }
 
 

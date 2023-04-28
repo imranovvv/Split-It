@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SplitIt.TotalPage"
+                 BackgroundColor="#E8EEF3"
+>
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="displayItems" Margin="5" HasUnevenRows="True" BackgroundColor="#E8EEF3">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame x:Name="itemFrame" Margin="5" Padding="5" CornerRadius="5">
+                                <Grid Padding="5">
+                                    <Label Grid.Column="0" Grid.Row="0" Text="{Binding ItemName}" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                                    <StackLayout
+                                Grid.Column="0"
+                                Grid.Row="1"
+                                BindableLayout.ItemsSource="{Binding PaidBy}"
+                                Orientation="Vertical"
+                                HorizontalOptions="Start"
+                            >
+                                        <BindableLayout.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackLayout Orientation="Horizontal" >
+                                                    <Label
+                                                Text="{Binding PersonName}"
+                                                Margin="0,0,5,0" />
+                                                    <Label
+                                                Text="{Binding SplitAmount, StringFormat='RM {0:F2}'}"
+                                                TextColor="#008000"
+                                                Margin="0,0,10,0" />
+                                                </StackLayout>
+                                            </DataTemplate>
+                                        </BindableLayout.ItemTemplate>
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.Footer>
+                    <Frame x:Name="item" Margin="5" Padding="5" CornerRadius="5">
+                        <StackLayout>
+                            <Label Text="Total paid by each person:" FontAttributes="Bold" />
+                            <StackLayout x:Name="personTotalsStackLayout" Orientation="Vertical" />
+                        </StackLayout>
+                    </Frame>
+
+                </ListView.Footer>
+            </ListView>
+            <Button Text="Save Record" TextColor="White" BackgroundColor="#2F80ED" Clicked="SaveRecordClicked"></Button>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

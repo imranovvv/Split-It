@@ -29,9 +29,9 @@ namespace SplitIt
                 }).ToList();
         }
 
-        // Add a single record of Items
+        // Add a single Item
 
-        public async Task AddRecord(string name, double price, int qty, Person[] people)
+        public async Task AddItems(string name, double price, int qty, Person[] people)
         {
             await firebase
                 .Child("Items")
@@ -50,12 +50,32 @@ namespace SplitIt
                 }).ToList();
         }
 
-        // Add a single record of Person
+        // Add a single Person
         public async Task AddPerson(string name)
         {
             await firebase
                 .Child("Person")
                 .PostAsync(new Person() { PersonName = name });
+        }
+
+        // Add a single Record
+        public async Task AddRecord(Record newRecord)
+        {
+            await firebase
+                .Child("Records")
+                .PostAsync(newRecord);
+        }
+        // Get list of Records
+        public async Task<List<Record>> GetAllRecords()
+        {
+            return (await firebase
+                .Child("Records")
+                .OnceAsync<Record>()).Select(item => new Record
+                {
+                    RecordId = item.Object.RecordId,
+                    ItemsList = item.Object.ItemsList,
+                    DateCreated = item.Object.DateCreated
+                }).OrderByDescending(record => record.DateCreated).ToList();
         }
 
 
@@ -101,6 +121,16 @@ namespace SplitIt
                 throw new Exception("Item not found.");
             }
         }
+
+        public async Task ResetDatabase()
+        {
+            // Delete the entire Items node
+            await firebase.Child("Items").DeleteAsync();
+
+            // Delete the entire Persons node
+            await firebase.Child("Person").DeleteAsync();
+        }
+
 
 
     }

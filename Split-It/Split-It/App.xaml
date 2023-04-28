@@ -3,6 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Split_It.App">
     <Application.Resources>
-
+        <Color x:Key="Primary">#E8EEF3</Color>
+        <Style TargetType="NavigationPage">
+            <Setter Property="BarBackgroundColor" Value="{StaticResource Primary}" />
+            <Setter Property="BarTextColor" Value="Black" />
+        </Style>
     </Application.Resources>
 </Application>

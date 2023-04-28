@@ -1,13 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SplitIt.InformationPage">
+             x:Class="SplitIt.InformationPage"
+                 BackgroundColor="#E8EEF3"
+>
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Instructions" HorizontalOptions="Center" FontSize="Large"></Label>
             <Frame x:Name="InstructionFrame" Margin="10" Padding="10" CornerRadius="10">
 
-                <Label Text="Click on a person's name and then choose which item that person paid for. If more than one person paid for one item, the app will automatically split the cost between the payers"
+                <Label Text="Add items bought as well as people included in the transaction. Click on a person's name and then choose which item that person paid for. To deselect a person who paid for an item, click on the item that already has their name. Click the 'Complete' Button to calculate the amount everyone has to pay. After that, click the 'Save Record' button to store the information in the Records Page."
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
                 

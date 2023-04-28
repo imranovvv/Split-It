@@ -23,46 +23,14 @@ public partial class RecordPage : ContentPage
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-            var allItems = await firebaseHelper.GetAllItems();
-            displayItems.ItemsSource = allItems;
-            UpdatePersonTotals(allItems);
+            recordListView.ItemsSource = await firebaseHelper.GetAllRecords();
         }
 
+        
 
-        public void UpdatePersonTotals(List<Items> items)
-        {
-            var personTotals = new Dictionary<string, double>();
 
-            foreach (var item in items)
-            {
-                if (item.PaidBy == null) continue;
 
-                var splitAmount = item.ItemPrice / item.PaidBy.Length;
 
-                foreach (var person in item.PaidBy)
-                {
-                    if (personTotals.ContainsKey(person.PersonName))
-                    {
-                        personTotals[person.PersonName] += splitAmount;
-                    }
-                    else
-                    {
-                        personTotals[person.PersonName] = splitAmount;
-                    }
-                }
-            }
-
-            personTotalsStackLayout.Children.Clear();
-            foreach (var personTotal in personTotals)
-            {
-                var totalLabel = new Label
-                {
-                    Text = $"{personTotal.Key}: RM {personTotal.Value:F2}",
-                    Margin = new Thickness(0, 0, 0, 5)
-                };
-                personTotalsStackLayout.Children.Add(totalLabel);
-            }
-        }
 
     }
 }

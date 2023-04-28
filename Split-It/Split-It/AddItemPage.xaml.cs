@@ -25,7 +25,7 @@ namespace SplitIt
 
             Person[] people = new Person[10];
 
-            await firebaseHelper.AddRecord(itemname, itemprice, itemqty, people);
+            await firebaseHelper.AddItems(itemname, itemprice, itemqty, people);
 
             await DisplayAlert("", "Item has been added", "OK");
 
